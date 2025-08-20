@@ -1,3 +1,13 @@
+# MyceliumNetworking For Straftat
+
+This is a port of the library [MyceliumNetworking For Content Warning](https://github.com/RugbugRedfern/Mycelium-Networking-For-Content-Warning)
+for use in Straftat mods, to allow RPC use.
+
+See the original readme below for a usage reference.
+
+<details>
+<summary>Original Readme</summary>
+
 # An easy to use networking library for sending custom RPCs through Steam.
 
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/RugbugRedfern/Mycelium-Networking-For-Content-Warning/build.yml?style=for-the-badge&logo=github)](https://github.com/RugbugRedfern/Mycelium-Networking-For-Content-Warning/actions/workflows/build.yml)
@@ -249,3 +259,4 @@ Join the Content Warning Modding discord and @ me (@rugdev): https://discord.gg/
 
 ## Code License: Attribution-NonCommercial-ShareAlike 4.0 International
 https://creativecommons.org/licenses/by-nc-sa/4.0/
+</details>
