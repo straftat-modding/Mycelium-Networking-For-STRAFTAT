@@ -18,7 +18,7 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 
     <PackageProjectUrl>https://thunderstore.io/c/content-warning/p/RugbugRedfern/MyceliumNetworking/</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Dimolade/Mycelium-Networking-For-STRAFTAT</RepositoryUrl>
+    <RepositoryUrl>https://github.com/straftat-modding/Mycelium-Networking-For-STRAFTAT</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 

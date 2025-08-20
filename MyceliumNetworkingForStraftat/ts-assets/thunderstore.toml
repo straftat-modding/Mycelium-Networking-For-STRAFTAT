@@ -8,7 +8,7 @@ repository = "https://thunderstore.io"
 namespace = "straftat-modding"
 name = "MyceliumNetworking"
 description = "An easy to use networking library for sending custom RPCs through Steam."
-websiteUrl = "https://github.com/Dimolade/Mycelium-Networking-For-STRAFTAT"
+websiteUrl = "https://github.com/straftat-modding/Mycelium-Networking-For-STRAFTAT"
 containsNsfwContent = false
 [package.dependencies]
 BepInEx-BepInExPack = "5.4.2100"
