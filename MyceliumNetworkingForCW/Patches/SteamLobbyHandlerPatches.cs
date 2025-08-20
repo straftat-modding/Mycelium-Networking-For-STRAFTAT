@@ -8,7 +8,7 @@ namespace MyceliumNetworking.Patches
 	[HarmonyPatch(typeof(SteamLobby))]
 	internal class SteamLobbyHandlerPatches
 	{
-		[HarmonyPatch(nameof(SteamLobby.LeaveLobby))]
+		[HarmonyPatch(nameof(SteamLobby.LeaveSteamLobby))]
 		[HarmonyPostfix]
 		static void LeaveLobbyPatch()
 		{
