@@ -1,14 +1,14 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MyceliumNetworking.Patches
 {
-	[HarmonyPatch(typeof(SteamLobbyHandler))]
+	[HarmonyPatch(typeof(SteamLobby))]
 	internal class SteamLobbyHandlerPatches
 	{
-		[HarmonyPatch(nameof(SteamLobbyHandler.LeaveLobby))]
+		[HarmonyPatch(nameof(SteamLobby.LeaveLobby))]
 		[HarmonyPostfix]
 		static void LeaveLobbyPatch()
 		{
