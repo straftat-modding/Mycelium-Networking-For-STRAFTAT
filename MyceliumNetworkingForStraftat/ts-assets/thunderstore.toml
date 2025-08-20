@@ -8,7 +8,7 @@ repository = "https://thunderstore.io"
 namespace = "RugbugRedfern"
 name = "MyceliumNetworking"
 description = "An easy to use networking library for sending custom RPCs through Steam."
-websiteUrl = "https://github.com/RugbugRedfern/Mycelium-Networking-For-Content-Warning"
+websiteUrl = "https://github.com/Dimolade/Mycelium-Networking-For-STRAFTAT"
 containsNsfwContent = false
 [package.dependencies]
 BepInEx-BepInExPack = "5.4.2100"
@@ -31,7 +31,7 @@ source = "../bin/Release/netstandard2.1/MyceliumNetworkingForCW.dll"
 target = "/BepInEx/plugins/MyceliumNetworking/"
 
 [publish]
-communities = [ "content-warning" ]
+communities = [ "straftat" ]
 [publish.categories]
-content-warning = [ "libraries" ]
-# For a list of valid tags, look at the slug values in https://thunderstore.io/api/experimental/community/content-warning/category/
+straftat = [ "libraries" ]
+# For a list of valid tags, look at the slug values in https://thunderstore.io/api/experimental/community/straftat/category/

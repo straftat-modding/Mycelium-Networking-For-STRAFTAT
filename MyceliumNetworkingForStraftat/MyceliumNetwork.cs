@@ -126,7 +126,7 @@ namespace MyceliumNetworking
 			LobbyEntered?.Invoke();
 		}
 
-		// called from SteamLobbyHandlerPatches
+		// called from SteamLobbyPatch
 		internal static void OnLobbyLeft()
 		{
 			lastLobbyData.Clear();

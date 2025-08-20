@@ -1,13 +1,13 @@
 <Project>
     <!-- Custom Variables -->
     <PropertyGroup>
-        <GameDirectory>.../Content Warning/</GameDirectory>
-        <PluginsDirectory>.../Content Warning/BepInEx/plugins/</PluginsDirectory>
+        <GameDirectory>.../STRAFTAT/</GameDirectory>
+        <PluginsDirectory>.../STRAFTAT/BepInEx/plugins/</PluginsDirectory>
     </PropertyGroup>
 
     <!-- Game Directory -->
     <PropertyGroup>
-        <ManagedDirectory>$(GameDirectory)Content Warning_Data/Managed/</ManagedDirectory>
+        <ManagedDirectory>$(GameDirectory)STRAFTAT_Data/Managed/</ManagedDirectory>
     </PropertyGroup>
 
     <!-- Copy to Plugin Directory for Quicker Testing -->

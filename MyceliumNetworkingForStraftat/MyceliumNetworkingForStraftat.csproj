@@ -2,14 +2,14 @@
   <!-- BepInEx Properties -->
   <PropertyGroup>
     <BepInExPluginGuid>RugbugRedfern.MyceliumNetworking</BepInExPluginGuid>
-    <AssemblyName>MyceliumNetworkingForCW</AssemblyName>
+    <AssemblyName>MyceliumNetworkingForStraftat</AssemblyName>
     <Product>Mycelium Networking</Product>
   </PropertyGroup>
 
   <!-- NuGet Package Info -->
   <PropertyGroup>
     <PackageId>RugbugRedfern.MyceliumNetworking.CW</PackageId>
-    <Title>MyceliumNetworking For CW</Title>
+    <Title>MyceliumNetworking For Straftat</Title>
     <Authors>RugbugRedfern</Authors>
     <PackageTags>contentwarning;content;warning;networking</PackageTags>
 
@@ -18,7 +18,7 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 
     <PackageProjectUrl>https://thunderstore.io/c/content-warning/p/RugbugRedfern/MyceliumNetworking/</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/RugbugRedfern/Mycelium-Networking-For-Content-Warning</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Dimolade/Mycelium-Networking-For-STRAFTAT</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
@@ -97,11 +97,6 @@
 	  <Reference Include="Steamworks.NET" Private="false">
 		  <HintPath>$(ManagedDirectory)com.rlabrecque.steamworks.net.dll</HintPath>
 	  </Reference>
-  </ItemGroup>
-
-  <!-- Package References - Game Assemblies -->
-  <ItemGroup Condition="$(CI) == 'true'">
-    <PackageReference Include="ContentWarning.GameLibs.Steam" Version="*-*" Publicize="true" PrivateAssets="all" />
   </ItemGroup>
   
   <Import Project="./pack-for-thunderstore.csproj" />

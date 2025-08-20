@@ -6,13 +6,13 @@ using System.Text;
 namespace MyceliumNetworking.Patches
 {
 	[HarmonyPatch(typeof(SteamLobby))]
-	internal class SteamLobbyHandlerPatches
+	internal class SteamLobbyPatch
 	{
 		[HarmonyPatch(nameof(SteamLobby.LeaveSteamLobby))]
 		[HarmonyPostfix]
 		static void LeaveLobbyPatch()
 		{
-			RugLogger.Log("Patching SteamLobbyHandler.LeaveLobby");
+			RugLogger.Log("Patching SteamLobby.LeaveSteamLobby");
 			MyceliumNetwork.OnLobbyLeft();
 		}
 	}
