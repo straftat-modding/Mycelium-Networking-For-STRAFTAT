@@ -8,10 +8,10 @@
 
   <!-- NuGet Package Info -->
   <PropertyGroup>
-    <PackageId>RugbugRedfern.MyceliumNetworking.CW</PackageId>
+    <PackageId>RugbugRedfern.MyceliumNetworking.Straftat</PackageId>
     <Title>MyceliumNetworking For Straftat</Title>
-    <Authors>RugbugRedfern</Authors>
-    <PackageTags>contentwarning;content;warning;networking</PackageTags>
+    <Authors>RugbugRedfern,StraftatModding</Authors>
+    <PackageTags>straftat;networking</PackageTags>
 
     <PackageIcon>icon_128x128.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -98,6 +98,13 @@
 		  <HintPath>$(ManagedDirectory)com.rlabrecque.steamworks.net.dll</HintPath>
 	  </Reference>
   </ItemGroup>
+
+  <!-- No Straftat libs package exists ~ should create one eventually -->
+  <!--
+  <ItemGroup Condition="$(CI) == 'true'">
+    <PackageReference Include="ContentWarning.GameLibs.Steam" Version="*-*" Publicize="true" PrivateAssets="all" />
+  </ItemGroup>
+  -->
   
   <Import Project="./pack-for-thunderstore.csproj" />
 </Project>

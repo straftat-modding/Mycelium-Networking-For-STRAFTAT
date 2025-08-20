@@ -34,13 +34,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: thunderstore-build
-          path: MyceliumNetworkingForCW/dist/*.zip
+          path: MyceliumNetworkingForStraftat/dist/*.zip
 
       - name: Upload NuPkg Artifact
         uses: actions/upload-artifact@v4
         with:
           name: nupkg-build
-          path: MyceliumNetworkingForCW/bin/Release/*.nupkg
+          path: MyceliumNetworkingForStraftat/bin/Release/*.nupkg
 
       - name: Build Debug
         run: |
@@ -48,10 +48,10 @@ jobs:
 
       - name: Rename Debug Build
         run: |
-          mv "./MyceliumNetworkingForCW/bin/Debug/netstandard2.1/MyceliumNetworkingForCW.dll" "./MyceliumNetworkingForCW/bin/Debug/netstandard2.1/MyceliumNetworkingForCW-Debug.dll"
+          mv "./MyceliumNetworkingForStraftat/bin/Debug/netstandard2.1/MyceliumNetworkingForStraftat.dll" "./MyceliumNetworkingForStraftat/bin/Debug/netstandard2.1/MyceliumNetworkingForStraftat-Debug.dll"
 
       - name: Upload Debug Dll
         uses: actions/upload-artifact@v4
         with:
           name: debug-build
-          path: MyceliumNetworkingForCW/bin/Debug/netstandard2.1/MyceliumNetworkingForCW-Debug.dll
+          path: MyceliumNetworkingForStraftat/bin/Debug/netstandard2.1/MyceliumNetworkingForStraftat-Debug.dll
