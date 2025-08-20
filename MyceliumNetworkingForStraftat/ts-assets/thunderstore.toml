@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 repository = "https://thunderstore.io"
 
 [package]
-namespace = "RugbugRedfern"
+namespace = "straftat-modding"
 name = "MyceliumNetworking"
 description = "An easy to use networking library for sending custom RPCs through Steam."
 websiteUrl = "https://github.com/Dimolade/Mycelium-Networking-For-STRAFTAT"
