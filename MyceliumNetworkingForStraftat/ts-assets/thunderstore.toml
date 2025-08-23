@@ -27,7 +27,7 @@ source = "./CHANGELOG.md"
 target = "/"
 
 [[build.copy]]
-source = "../bin/Release/netstandard2.1/MyceliumNetworkingForCW.dll"
+source = "../bin/Release/netstandard2.1/MyceliumNetworkingForStraftat.dll"
 target = "/BepInEx/plugins/MyceliumNetworking/"
 
 [publish]

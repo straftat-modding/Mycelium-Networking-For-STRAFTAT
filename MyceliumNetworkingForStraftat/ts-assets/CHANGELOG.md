@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.15
+
+- Fixed networking sessions not being properly handled (Content Warning does this itself - so it was neglected when porting the library to straftat.)
+
 ## 1.1.14
 
 - Initial release for STRAFTAT
