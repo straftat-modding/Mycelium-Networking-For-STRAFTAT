@@ -105,6 +105,8 @@ namespace MyceliumNetworking
 		static Callback<LobbyCreated_t> _c3;
 		static Callback<LobbyChatUpdate_t> _c4;
 		static Callback<LobbyDataUpdate_t> _c5;
+		static Callback<SteamNetworkingMessagesSessionRequest_t> _c6;
+		static Callback<SteamNetworkingMessagesSessionFailed_t> _c7;
 
 		public static void Initialize()
 		{
@@ -112,6 +114,8 @@ namespace MyceliumNetworking
 			_c3 = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
 			_c4 = Callback<LobbyChatUpdate_t>.Create(OnLobbyChatUpdate);
 			_c5 = Callback<LobbyDataUpdate_t>.Create(OnLobbyDataUpdate);
+			_c6 = Callback<SteamNetworkingMessagesSessionRequest_t>.Create(OnSessionRequest);
+			_c7 = Callback<SteamNetworkingMessagesSessionFailed_t>.Create(OnSessionRequestFailed);
 		}
 
 		static void OnLobbyEnter(LobbyEnter_t param)
@@ -129,6 +133,14 @@ namespace MyceliumNetworking
 		// called from SteamLobbyPatch
 		internal static void OnLobbyLeft()
 		{
+			foreach (var id in Players) {
+				SteamNetworkingIdentity identity = new();
+				identity.SetSteamID(id);
+				if (SteamNetworkingMessages.CloseSessionWithUser(ref identity)) {
+					RugLogger.Log($"Closed session with {id}");
+				}
+			}
+			
 			lastLobbyData.Clear();
 			lastPlayerData.Clear();
 			InLobby = false;
@@ -173,6 +185,21 @@ namespace MyceliumNetworking
 					PlayerLeft?.Invoke(steamID);
 					break;
 			}
+		}
+		
+		static void OnSessionRequest(SteamNetworkingMessagesSessionRequest_t param)
+		{
+			CSteamID senderID = param.m_identityRemote.GetSteamID();
+			if (!InLobby || !Players.Contains(senderID)) {
+				RugLogger.LogWarning($"Denying session request from {senderID}: not in a lobby or request sender not in current lobby");
+				return;
+			}
+			RugLogger.Log($"Session request recieved from {senderID}, accepted: {SteamNetworkingMessages.AcceptSessionWithUser(ref param.m_identityRemote)}");
+		}
+		
+		static void OnSessionRequestFailed(SteamNetworkingMessagesSessionFailed_t param)
+		{
+			RugLogger.LogWarning($"Session request failed: {param.m_info.m_eState}");
 		}
 
 		/// <summary>

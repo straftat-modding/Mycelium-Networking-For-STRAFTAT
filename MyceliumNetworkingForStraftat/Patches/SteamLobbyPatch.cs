@@ -12,7 +12,6 @@ namespace MyceliumNetworking.Patches
 		[HarmonyPostfix]
 		static void LeaveLobbyPatch()
 		{
-			RugLogger.Log("Patching SteamLobby.LeaveSteamLobby");
 			MyceliumNetwork.OnLobbyLeft();
 		}
 	}
