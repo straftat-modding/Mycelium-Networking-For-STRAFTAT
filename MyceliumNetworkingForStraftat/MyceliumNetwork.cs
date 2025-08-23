@@ -127,6 +127,13 @@ namespace MyceliumNetworking
 
 			RefreshPlayerList();
 
+			// send an empty message to other players to request sessions
+			var me = SteamUser.GetSteamID();
+			foreach (var id in Players) {
+				if (id == me) continue;
+				SendBytes([], id, ReliableType.Reliable);
+			}
+
 			LobbyEntered?.Invoke();
 		}
 
@@ -693,6 +700,13 @@ namespace MyceliumNetworking
 
 				CSteamID sender = steamNetworkingMessage.m_identityPeer.GetSteamID();
 
+				// ignore empty messages (used for hello upon joining lobby)
+				if (steamNetworkingMessage.m_cbSize == 0)
+				{
+					SteamNetworkingMessage_t.Release(outMessages[i]);
+					continue;
+				}
+				
 				// Ignore them if their steam id is null (happens sometimes idk)
 				if(sender == null)
 				{
