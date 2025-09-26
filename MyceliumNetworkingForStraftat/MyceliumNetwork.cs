@@ -230,31 +230,53 @@ namespace MyceliumNetworking
 		public static void RPCTargetMasked(uint modId, string methodName, CSteamID target, ReliableType reliable, int mask, params object[] parameters)
 		{
 			var msg = new Message(modId, methodName, mask);
+			var handlers = GetMessageHandlers(modId, methodName);
+			MessageHandler selectedHandler = null;
+			int targetParameterCount = 0;
 
-			var handler = GetMessageHandlers(modId, methodName)[0];
-
-			int targetParameterCount = handler.Parameters.Length;
-
-			if(handler.TakesInfo)
+			// Find and use the first handler that supports the provided parameters
+			foreach(var handler in handlers)
 			{
-				targetParameterCount--;
+				targetParameterCount = handler.Parameters.Length;
+				
+				if(handler.TakesInfo)
+				{
+					targetParameterCount--;
+				}
+
+				if(targetParameterCount != parameters.Length)
+				{
+					continue;
+				}
+
+				bool typesCorrect = true;
+				for(int i = 0; i < targetParameterCount; i++)
+				{
+					if(handler.Parameters[i].ParameterType != parameters[i].GetType())
+					{
+						typesCorrect = false;
+						break;
+					}
+				}
+				if(!typesCorrect)
+				{
+					continue;
+				}
+				
+				selectedHandler = handler;
+				break;
 			}
 
-			if(targetParameterCount != parameters.Length)
+			if(selectedHandler == null)
 			{
-				throw new Exception($"RPC call {modId}: {methodName} has an invalid number of parameters (it has {parameters.Length}, but it should have {targetParameterCount})");
+				throw new Exception($"No valid message handler found for {modId}: {methodName} with parameter types provided. Did you pass the correct types to RPC*()?");
 			}
 
 			for(int i = 0; i < targetParameterCount; i++)
 			{
-				if(handler.Parameters[i].ParameterType != parameters[i].GetType())
-				{
-					throw new Exception($"RPC call {modId}: {methodName} has a mismatched parameter type ({parameters[i].GetType()} should be {handler.Parameters[i].ParameterType}) for {handler.Parameters[i].Name}");
-				}
-
-				msg.WriteObject(handler.Parameters[i].ParameterType, parameters[i]);
+				msg.WriteObject(selectedHandler.Parameters[i].ParameterType, parameters[i]);
 			}
-
+			
 			SendBytes(msg.ToArray(), target, reliable);
 		}
 
