@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.17
+
+- Library is now marked as vanilla compatible, to fix issues that may arise when some people in a group have it installed
+with incompatible dependents, but some also have compatible dependents, resulting in the mod being marked as compatible
+only for some people in the group.
+
 ## 1.1.16
 
 - RPCs in generic types are now supported and should function as expected
