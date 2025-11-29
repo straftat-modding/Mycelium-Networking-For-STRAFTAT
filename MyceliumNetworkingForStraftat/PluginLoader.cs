@@ -6,7 +6,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using ComputerysModdingUtilities;
 using UnityEngine;
+
+[assembly: StraftatMod(isVanillaCompatible: true)]
 
 namespace MyceliumNetworking
 {
